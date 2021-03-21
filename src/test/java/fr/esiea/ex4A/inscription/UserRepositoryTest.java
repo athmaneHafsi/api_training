@@ -1,18 +1,20 @@
-package fr.esiea.ex4A.hello;
+package fr.esiea.ex4A.inscription;
 
+import fr.esiea.ex4A.api.inscription.UserData;
+import fr.esiea.ex4A.api.inscription.UserRepository;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-class HelloRepositoryTest {
+class UserRepositoryTest {
 
-    private final HelloRepository helloRepository = new HelloRepository();
-
+    private final UserRepository userRepository = new UserRepository();
+/*
     @Test
     void randomHello_returns_an_hello_based_on_internal_list() {
-        HelloData helloData = helloRepository.randomHello();
+        UserData helloData = userRepository.randomHello();
 
         assertThat(helloData.name).isIn(helloRepository.names);
         assertThat(helloData.type).isEqualTo("hello");
@@ -30,4 +32,6 @@ class HelloRepositoryTest {
 
         assertThat(helloData.name).isEqualTo(expectedOutputName);
     }
+
+ */
 }
