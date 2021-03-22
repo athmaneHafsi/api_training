@@ -12,17 +12,18 @@ import java.sql.SQLOutput;
 class InscriptionController {
 
     private final UserRepository userRepository;
-
     InscriptionController(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
 
     @PostMapping(path = "/inscription", produces = MediaType.APPLICATION_JSON_VALUE)
     ResponseEntity<?> inscription(@RequestBody UserData user) {
-        if (userRepository.userExist(user)) {
-            return ResponseEntity.ok("Utilisateur déja existant");
+        //Etant donnée que user provient d'une entrée du client on fait toutes les
+        //verifications necessaires avant de sauvegarder les informations.
+        if ( !userRepository.userExist(user) ) {
+            userRepository.addUser(user);
+            return ResponseEntity.ok("Utilisateur ajoute avec succes");
         }
-        userRepository.addUser(user);
-        return ResponseEntity.ok("Utilisateur ajouté avec succes");
+        return ResponseEntity.ok("Utilisateur deja existant");
     }
 }

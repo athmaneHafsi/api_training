@@ -8,13 +8,14 @@ import java.util.*;
 public
 class UserRepository {
 
-    List<UserData> users = new ArrayList<>();
+    public final List<UserData> users = new ArrayList<>();
 
-    void addUser(UserData user) {
+    public UserData addUser(UserData user) {
         users.add(user);
+        return user;
     }
 
-    boolean userExist(UserData user) {
+    public boolean userExist(UserData user) {
         return containsUser(users, user);
     }
 

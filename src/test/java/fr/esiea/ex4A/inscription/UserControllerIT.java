@@ -1,17 +1,15 @@
 package fr.esiea.ex4A.inscription;
 
+import fr.esiea.ex4A.api.inscription.UserData;
 import fr.esiea.ex4A.api.inscription.UserRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
-import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
-
-import static org.hamcrest.CoreMatchers.endsWith;
-import static org.hamcrest.CoreMatchers.startsWith;
 import static org.hamcrest.CoreMatchers.*;
 import static org.mockito.Mockito.any;
 import static org.mockito.Mockito.*;
@@ -29,37 +27,28 @@ class UserControllerIT {
     UserControllerIT(@Autowired MockMvc mockMvc) {
         this.mockMvc = mockMvc;
     }
-/*
+
     @Test
-    void hello_delegates_to_repository_when_name_param_is_present() throws Exception {
-        when(repository.getHelloFor(any())).thenReturn(new HelloData("test"));
+    void inscription_to_repository_with_user_informations() throws Exception {
+        when(repository.addUser(any(UserData.class))).thenReturn(new UserData());
 
         mockMvc
-            .perform(MockMvcRequestBuilders.get("/hello?name=test"))
+            .perform(MockMvcRequestBuilders.post("/api/inscription")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content("""
+                    {
+                    "userEmail": "machin@truc.com",
+                    "userName": "machin",
+                    "userTweeter": "machin45",
+                    "userCountry": "FR",
+                    "userSex": "M",
+                    "userSexPref": "M"
+                    }""")
+                .accept(MediaType.APPLICATION_JSON))
             .andExpect(status().isOk())
-            .andExpect(content().json("""
-                        {
-                            "type":"hello",
-                            "name":"test",
-                            "completeSentence":"hello test!"}
-                        }
-                        """));
+            .andExpect(content().string(containsString("Utilisateur ajoute avec succes")));
 
-        verify(repository).getHelloFor("test");
+        verify(repository).addUser(new UserData("machin", "machin@truc.com",
+            "machin45", "FR", "M", "M"));
     }
-
-    @Test
-    void hello_delegates_to_random_when_name_param_is_absent() throws Exception {
-        when(repository.randomHello()).thenReturn(new HelloData("randomtest"));
-
-        mockMvc
-            .perform(MockMvcRequestBuilders.get("/hello"))
-            .andDo(MockMvcResultHandlers.print())
-            .andExpect(status().isOk())
-            .andExpect(jsonPath("$.type").value("hello"))
-            .andExpect(jsonPath("$.name").value("randomtest"))
-            .andExpect(jsonPath("$.completeSentence").value(allOf(startsWith("hello"), endsWith("!"))));
-
-        verify(repository).randomHello();
-    }*/
 }
