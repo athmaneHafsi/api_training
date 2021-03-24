@@ -1,7 +1,6 @@
-package fr.esiea.ex4A.inscription;
+package fr.esiea.ex4A.api.inscription;
 
-import fr.esiea.ex4A.api.inscription.UserData;
-import fr.esiea.ex4A.api.inscription.UserRepository;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -13,6 +12,15 @@ class UserRepositoryTest {
     void adding_user_on_users_list() {
         UserData user = new UserData("Test", "test@test.com",
         "tweeterTest", "FR", "M", "M");
+        userRepository.addUser(user);
+
+        Assertions.assertTrue(userRepository.userExist(user));
+        Assertions.assertEquals(1, userRepository.users.size());
+    }
+
+    @Test
+    void adding_user_with_default() {
+        UserData user = new UserData();
         userRepository.addUser(user);
 
         Assertions.assertTrue(userRepository.userExist(user));

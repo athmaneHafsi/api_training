@@ -1,12 +1,10 @@
 package fr.esiea.ex4A.api.inscription;
 
 import org.springframework.stereotype.Repository;
-
 import java.util.*;
 
 @Repository
-public
-class UserRepository {
+public class UserRepository {
 
     public final List<UserData> users = new ArrayList<>();
 
