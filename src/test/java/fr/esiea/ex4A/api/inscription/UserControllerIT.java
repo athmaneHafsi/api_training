@@ -1,4 +1,4 @@
-package fr.esiea.ex4A.inscription;
+package fr.esiea.ex4A.api.inscription;
 
 import fr.esiea.ex4A.api.inscription.UserData;
 import fr.esiea.ex4A.api.inscription.UserRepository;
@@ -51,4 +51,5 @@ class UserControllerIT {
         verify(repository).addUser(new UserData("machin", "machin@truc.com",
             "machin45", "FR", "M", "M"));
     }
+
 }
