@@ -22,6 +22,16 @@ public class UserData {
         this.userEmail = userEmail;
     }
 
+    //Constructeur par défaut
+    public UserData() {
+        userName = null;
+        userEmail = null;
+        userTweeter = null;
+        userCountry = null;
+        userSex = null;
+        userSexPref = null;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -32,14 +42,6 @@ public class UserData {
             Objects.equals(userTweeter, userData.userTweeter) &&
             Objects.equals(userCountry, userData.userCountry) &&
             Objects.equals(userSexPref, userData.userSexPref);
-    }
-    public UserData() {
-        userName = null;
-        userEmail = null;
-        userTweeter = null;
-        userCountry = null;
-        userSex = null;
-        userSexPref = null;
     }
 
     @Override
