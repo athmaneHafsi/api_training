@@ -1,5 +1,6 @@
-package fr.esiea.ex4A.api.inscription;
+package fr.esiea.ex4A.api.repository;
 
+import fr.esiea.ex4A.api.model.UserData;
 import org.springframework.stereotype.Repository;
 import java.util.*;
 

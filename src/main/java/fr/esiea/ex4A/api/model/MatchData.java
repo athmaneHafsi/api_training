@@ -1,4 +1,4 @@
-package fr.esiea.ex4A.matches;
+package fr.esiea.ex4A.api.model;
 
 import java.util.Objects;
 
@@ -11,13 +11,6 @@ public class MatchData {
     public MatchData(String name, String twitter) {
         this.name = name;
         this.twitter = twitter;
-    }
-
-    //Constructeur par défaut
-    public MatchData() {
-        name = null;
-        twitter = null;
-
     }
 
     @Override

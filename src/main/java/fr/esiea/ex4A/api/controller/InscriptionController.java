@@ -1,5 +1,7 @@
-package fr.esiea.ex4A.api.inscription;
+package fr.esiea.ex4A.api.controller;
 
+import fr.esiea.ex4A.api.model.UserData;
+import fr.esiea.ex4A.api.repository.UserRepository;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

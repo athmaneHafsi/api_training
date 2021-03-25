@@ -1,7 +1,7 @@
 package fr.esiea.ex4A.api.inscription;
 
-import fr.esiea.ex4A.api.inscription.UserData;
-import fr.esiea.ex4A.api.inscription.UserRepository;
+import fr.esiea.ex4A.api.model.UserData;
+import fr.esiea.ex4A.api.repository.UserRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;

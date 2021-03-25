@@ -1,5 +1,6 @@
-package fr.esiea.ex4A.matches;
+package fr.esiea.ex4A.api.repository;
 
+import fr.esiea.ex4A.api.model.MatchData;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
