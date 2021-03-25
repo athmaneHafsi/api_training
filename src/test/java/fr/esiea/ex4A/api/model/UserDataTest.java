@@ -1,9 +1,7 @@
-package fr.esiea.ex4A.api.inscription;
+package fr.esiea.ex4A.api.model;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class UserDataTest {
 

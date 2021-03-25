@@ -1,5 +1,4 @@
-package fr.esiea.ex4A.api.inscription;
-import org.apache.catalina.User;
+package fr.esiea.ex4A.api.model;
 
 import java.util.Objects;
 
@@ -11,6 +10,7 @@ public class UserData {
     public final String userCountry;
     public final String userSex;
     public final String userSexPref;
+    //public final int userAge;
 
     public UserData(String userName, String userEmail, String userTweeter, String userCountry,
                     String userSex, String userSexPref) {
@@ -20,6 +20,7 @@ public class UserData {
         this.userSex = userSex;
         this.userSexPref = userSexPref;
         this.userEmail = userEmail;
+        //this.userAge = userAge;
     }
 
     //Constructeur par défaut

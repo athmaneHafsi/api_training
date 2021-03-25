@@ -1,5 +1,6 @@
-package fr.esiea.ex4A.matches;
+package fr.esiea.ex4A.api.controller;
 
+import fr.esiea.ex4A.api.repository.MatchesRepository;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.lang.NonNull;

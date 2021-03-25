@@ -1,6 +1,8 @@
 package fr.esiea.ex4A.api.inscription;
 
 
+import fr.esiea.ex4A.api.model.UserData;
+import fr.esiea.ex4A.api.repository.UserRepository;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
