@@ -14,6 +14,15 @@ public class UserRepository {
         return user;
     }
 
+    public UserData getUserByUsernameAndCountry(String userName, String country) {
+        for(UserData u : users) {
+            if (u.userCountry.equals(country) && u.userName.equals(userName)){
+                return u;
+            }
+        }
+        return null;
+    }
+
     public boolean userExist(UserData user) {
         return containsUser(users, user);
     }

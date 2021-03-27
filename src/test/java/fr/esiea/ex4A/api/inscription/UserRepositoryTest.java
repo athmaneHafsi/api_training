@@ -13,7 +13,7 @@ class UserRepositoryTest {
     @Test
     void adding_user_on_users_list() {
         UserData user = new UserData("Test", "test@test.com",
-        "tweeterTest", "FR", "M", "M");
+        "tweeterTest", "FR", "M", "M", 19);
         userRepository.addUser(user);
 
         Assertions.assertTrue(userRepository.userExist(user));
