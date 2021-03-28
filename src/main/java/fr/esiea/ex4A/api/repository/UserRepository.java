@@ -1,5 +1,6 @@
-package fr.esiea.ex4A.api.inscription;
+package fr.esiea.ex4A.api.repository;
 
+import fr.esiea.ex4A.api.model.UserData;
 import org.springframework.stereotype.Repository;
 import java.util.*;
 
@@ -11,6 +12,15 @@ public class UserRepository {
     public UserData addUser(UserData user) {
         users.add(user);
         return user;
+    }
+
+    public UserData getUserByUsernameAndCountry(String userName, String country) {
+        for(UserData u : users) {
+            if (u.userCountry.equals(country) && u.userName.equals(userName)){
+                return u;
+            }
+        }
+        return null;
     }
 
     public boolean userExist(UserData user) {

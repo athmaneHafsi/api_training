@@ -1,7 +1,7 @@
 package fr.esiea.ex4A.api.inscription;
 
-import fr.esiea.ex4A.api.inscription.UserData;
-import fr.esiea.ex4A.api.inscription.UserRepository;
+import fr.esiea.ex4A.api.model.UserData;
+import fr.esiea.ex4A.api.repository.UserRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -42,14 +42,26 @@ class UserControllerIT {
                     "userTweeter": "machin45",
                     "userCountry": "FR",
                     "userSex": "M",
-                    "userSexPref": "M"
+                    "userSexPref": "M",
+                    "userAge": 19
                     }""")
                 .accept(MediaType.APPLICATION_JSON))
-            .andExpect(status().isOk())
-            .andExpect(content().string(containsString("Utilisateur ajoute avec succes")));
+            .andExpect(status().isOk());
+            /*.andExpect(content()
+                .json(String.valueOf(containsString("""
+                    {
+                    "userEmail": "machin@truc.com",
+                    "userName": "machin",
+                    "userTweeter": "machin45",
+                    "userCountry": "FR",
+                    "userSex": "M",
+                    "userSexPref": "M",
+                    "userAge": 19
+                    }"""
+            ))));*/
 
-        verify(repository).addUser(new UserData("machin", "machin@truc.com",
-            "machin45", "FR", "M", "M"));
+        /*verify(repository).addUser(new UserData("machin", "machin@truc.com",
+            "machin45", "FR", "M", "M", 19));*/
     }
 
 }
