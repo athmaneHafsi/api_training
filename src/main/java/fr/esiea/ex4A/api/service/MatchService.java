@@ -32,9 +32,7 @@ public class MatchService {
     }
 
     public ArrayList<MatchData> getMatches(String userName, String country_id) {
-        System.out.println(userRepository.users.size());
         UserData user = userRepository.getUserByUsernameAndCountry(userName, country_id);
-        System.out.println(userRepository.users.size());
-        return (ArrayList<MatchData>) matchesRepository.findMatch(user.userAge, country_id, user.userSexPref);
+        return (ArrayList<MatchData>) matchesRepository.findMatch(user, country_id);
     }
 }
