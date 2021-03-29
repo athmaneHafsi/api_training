@@ -16,11 +16,11 @@ public class MatchesRepository {
         this.userRepository = userRepository;
     }
 
-    public List<MatchData> findMatch(int age, String country_id, String userSexPref) {
+    public List<MatchData> findMatch(UserData userOne, String country_id) {
         ArrayList<MatchData> usersMatched = new ArrayList<>();
         if (userRepository.users != null && userRepository.users.size() > 1){
             for(UserData u : userRepository.users) {
-                if (u.userSexPref.equals(userSexPref) && (u.userAge - age <= 4)){
+                if (u.userSex.equals(userOne.userSexPref) && (Math.abs(u.userAge - userOne.userAge) <= 4) && !u.equals(userOne) && u.userCountry.equals(country_id)){
                         usersMatched.add(new MatchData(u.userName, u.userTweeter));
                 }
             }
